@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <form action="https://steamcommunity.com/openid/login" method="post">
+        <input type="hidden" name="openid.identity"
+               value="http://specs.openid.net/auth/2.0/identifier_select" />
+        <input type="hidden" name="openid.claimed_id"
+               value="http://specs.openid.net/auth/2.0/identifier_select" />
+        <input type="hidden" name="openid.ns" value="http://specs.openid.net/auth/2.0" />
+        <input type="hidden" name="openid.mode" value="checkid_setup" />
+        <input type="hidden" name="openid.realm" value="http://192.168.1.135:5000" />
+        <input type="hidden" name="openid.return_to" value="http://192.168.1.135:5000/steam_login" />
+        <input type="image" src="http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"></input>
+    </form>
+</body>
+</html>
