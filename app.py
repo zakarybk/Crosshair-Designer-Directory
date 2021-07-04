@@ -1,11 +1,14 @@
 # https://stackoverflow.com/a/59939341 -- ref
 # https://stackoverflow.com/a/63652502 -- ref 2
+import os
 import requests
 import logging
 import re
 from flask import (Flask, render_template, request, redirect, session, jsonify)
 from werkzeug.wrappers import response
 
+os.putenv('LANG', 'en_US.UTF-8')
+os.putenv('LC_ALL', 'en_US.UTF-8')
 app = Flask(__name__)
 app.secret_key = 'ItShouldBeAnythingButSecret'
 
@@ -28,6 +31,9 @@ def login():
 @app.route('/steam_login', methods=['GET'])
 def openid_login():
     good_response = request.args.get('openid.mode') == 'id_res'
+
+    # current problem - cannot read from localhost
+    print(request.headers.get('User-Agent'))
 
     if good_response:
         required = [
